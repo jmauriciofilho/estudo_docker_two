@@ -1,0 +1,60 @@
+version: "3"
+services:
+  mysql_db: 
+    image: mysql
+    container_name: mysql_db
+    ports: 
+      - "8000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: r00t
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: usr-wordpress
+      MYSQL_PASSWORD: pwd-wordpress
+  wordpress_one: 
+    image: wordpress
+    container_name: wordpress_one
+    depends_on:
+      - "mysql_db"
+    volumes: 
+      - ./arquivos:/var/www/html  
+    environment:
+      WORDPRESS_DB_HOST: mysql_db:3306
+      WORDPRESS_DB_USER: usr-wordpress
+      WORDPRESS_DB_PASSWORD: pwd-wordpress
+      WORDPRESS_DB_NAME: wordpress
+  wordpress_two: 
+    image: wordpress
+    container_name: wordpress_two
+    depends_on:
+      - "mysql_db"
+    volumes: 
+      - ./arquivos:/var/www/html
+    environment:
+      WORDPRESS_DB_HOST: mysql_db:3306
+      WORDPRESS_DB_USER: usr-wordpress
+      WORDPRESS_DB_PASSWORD: pwd-wordpress
+      WORDPRESS_DB_NAME: wordpress
+  wordpress_three: 
+    image: wordpress
+    container_name: wordpress_three
+    depends_on:
+      - "mysql_db"
+    volumes: 
+      - ./arquivos:/var/www/html  
+    environment:
+      WORDPRESS_DB_HOST: mysql_db:3306
+      WORDPRESS_DB_USER: usr-wordpress
+      WORDPRESS_DB_PASSWORD: pwd-wordpress
+      WORDPRESS_DB_NAME: wordpress
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+       - "8080:80"
+    volumes: 
+      - ./nginx:/etc/nginx
+      - ./arquivos:/var/www/html
+    links:
+      - wordpress_one
+      - wordpress_two
+      - wordpress_three       
