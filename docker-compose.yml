@@ -3,8 +3,6 @@ services:
   mysql_db: 
     image: mysql
     container_name: mysql_db
-    ports: 
-      - "8000:3306"
     environment:
       MYSQL_ROOT_PASSWORD: r00t
       MYSQL_DATABASE: wordpress
@@ -13,6 +11,8 @@ services:
   wordpress_one: 
     image: wordpress
     container_name: wordpress_one
+    ports:
+      - "80"
     depends_on:
       - "mysql_db"
     volumes: 
@@ -40,7 +40,7 @@ services:
     depends_on:
       - "mysql_db"
     volumes: 
-      - ./arquivos:/var/www/html  
+      - ./arquivos:/var/www/html
     environment:
       WORDPRESS_DB_HOST: mysql_db:3306
       WORDPRESS_DB_USER: usr-wordpress
@@ -52,9 +52,10 @@ services:
     ports:
        - "8080:80"
     volumes: 
-      - ./nginx:/etc/nginx
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./logs/nginx:/var/log/nginx
       - ./arquivos:/var/www/html
-    links:
+    depends_on:
       - wordpress_one
       - wordpress_two
       - wordpress_three       
