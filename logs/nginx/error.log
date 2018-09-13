@@ -1,6 +1,11 @@
-2018/08/30 22:50:57 [emerg] 1#1: host not found in upstream "wordpress1" in /etc/nginx/nginx.conf:5
-2018/08/31 02:44:25 [emerg] 1#1: host not found in upstream "wordpress1" in /etc/nginx/nginx.conf:5
-2018/08/31 02:47:17 [error] 7#7: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.5:80/", host: "localhost:8000"
-2018/08/31 02:47:17 [error] 7#7: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.4:80/", host: "localhost:8000"
-2018/08/31 02:47:17 [error] 7#7: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:80/", host: "localhost:8000"
-2018/08/31 02:47:17 [error] 7#7: *2 no live upstreams while connecting to upstream, client: 172.18.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://wordpress/favicon.ico", host: "localhost:8000", referrer: "http://localhost:8000/"
+
+2018/08/31 03:38:56 [error] 8#8: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "HEAD / HTTP/1.1", upstream: "http://172.18.0.3:80/", host: "localhost:8000"
+2018/08/31 03:38:56 [error] 8#8: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "HEAD / HTTP/1.1", upstream: "http://172.18.0.5:80/", host: "localhost:8000"
+2018/08/31 03:38:56 [error] 8#8: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "HEAD / HTTP/1.1", upstream: "http://172.18.0.4:80/", host: "localhost:8000"
+2018/08/31 03:38:58 [error] 8#8: *5 no live upstreams while connecting to upstream, client: 172.18.0.1, server: , request: "HEAD / HTTP/1.1", upstream: "http://wordpress/", host: "localhost:8000"
+2018/09/13 03:20:13 [emerg] 1#1: host not found in upstream "wordpress.test" in /etc/nginx/nginx.conf:18
+2018/09/13 03:21:32 [emerg] 1#1: host not found in upstream "wordpress1.test" in /etc/nginx/nginx.conf:5
+2018/09/13 03:24:23 [emerg] 1#1: host not found in upstream "wordpress1.test" in /etc/nginx/nginx.conf:5
+2018/09/13 03:26:32 [emerg] 1#1: "proxy_pass" directive is duplicate in /etc/nginx/nginx.conf:19
+2018/09/13 03:40:09 [emerg] 1#1: upstream "wordpress" may not have port 8080 in /etc/nginx/nginx.conf:18
+2018/09/13 03:40:42 [emerg] 1#1: upstream "wordpress" may not have port 80 in /etc/nginx/nginx.conf:18
